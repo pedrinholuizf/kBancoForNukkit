@@ -61,8 +61,13 @@ public class Main extends PluginBase implements Listener{
 			if(args.length == 3) {
 				if(args[0].contains("pay")) {
 					String jogador = args[1];
-					int quantia = Integer.parseInt(args[2]);
-					if(getServer().getPlayer(jogador) != null) {
+					try{
+					        int quantia = Integer.parseInt(args[2]);
+						if(getServer().getPlayer(jogador) != null) {
+						if(quantia > Utils.getMoney(player)){
+							player.sendMessage("§c[Money] §cDinheiro insuficiente!");
+							return true;
+						}
 						getServer().getPlayer(jogador).sendMessage("§c[Money] §a" + player.getName() + " §cenviou a você §a" + quantia + " coins.");
 						Utils.addMoney(getServer().getPlayer(jogador), quantia);
 						Utils.removeMoney(player, Utils.getMoney(player) - quantia);
@@ -70,6 +75,9 @@ public class Main extends PluginBase implements Listener{
 					} else {
 						player.sendMessage("§cJogador Offline.");
 						return true;
+					}
+					} catch (Exception ex) {
+						p.sendMessage("§c[Money] §cIsto não é um Numero!");
 					}
 				}
 				if(args[0].contains("remove")) {
