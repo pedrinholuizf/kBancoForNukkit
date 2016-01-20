@@ -44,6 +44,7 @@ public class Main extends PluginBase implements Listener{
 				if(player.hasPermission("kBanco.admin")) {
 					player.sendMessage("§c[Money] §a/money remove <nick> <quantia>");
 					player.sendMessage("§c[Money] §a/money give <nick> <quantia>");
+					player.sendMessage("§c[Money] §a/money set <nick> <quantia>");
 				}
 
 
