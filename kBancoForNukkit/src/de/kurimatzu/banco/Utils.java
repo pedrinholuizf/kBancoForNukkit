@@ -22,7 +22,7 @@ public class Utils {
 			c.remove(p.getUniqueId().toString());
 			c.save();
 			c.save(true);
-			p.sendMessage("§cConta deletada.");
+			p.sendMessage("§cConta deletada..");
 		} else {
 			p.sendMessage("§cops, essa conta nao existe.");
 		}
