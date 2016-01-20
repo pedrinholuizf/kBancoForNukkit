@@ -45,9 +45,9 @@ public class Main extends PluginBase implements Listener{
 					player.sendMessage("§c[Money] §a/money remove <nick> <quantia>");
 					player.sendMessage("§c[Money] §a/money give <nick> <quantia>");
 				}
-		
-				
-				
+
+
+
 				return true;
 			}
 			if(args.length == 2) {

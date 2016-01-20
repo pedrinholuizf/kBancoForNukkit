@@ -8,14 +8,14 @@ import cn.nukkit.utils.Config;
 public class Utils {
 
 	public static Config c = new Config(new File(Main.instance.getDataFolder(), "contas.yml"));
-	
-	
+
+
 	public static double getMoney(final Player p) {
 		if(c.exists(p.getUniqueId().toString())) {
 			return (double) c.get(p.getUniqueId().toString());
 		}
 		return 0;
-		
+
 	}
 	public static void deletarConta(final Player p) {
 		if(c.exists(p.getUniqueId().toString())) {
@@ -67,7 +67,7 @@ public class Utils {
 			return false;
 		}
 	}
-	
-	
-	
+
+
+
 }
