@@ -35,6 +35,32 @@ public class Main extends PluginBase implements Listener{
 		}
 		Player player = (Player)sender;
 		if(cmd.getName().toLowerCase().contains("money")) {
+			if(args.length == 1) {
+				if(args[0].contains("pay")) {
+					player.sendMessage("§c[Money] §a/money pay <nick> <quantia>");
+				}
+				return true;
+			}
+			if(args.length == 2) {
+               if(args[0].contains("pay")) {
+					player.sendMessage("§c[Money] §a/money pay <nick> <quantia>");
+					return true;
+				}
+               
+			}
+			if(args.length == 3) {
+				String jogador = args[1];
+				int quantia = Integer.parseInt(args[2]);
+				if(getServer().getPlayer(jogador) != null) {
+					getServer().getPlayer(jogador).sendMessage("§c[Money] §a" + player.getName() + " §cenviou a você §a" + quantia + " coins.");
+				   Utils.addMoney(getServer().getPlayer(jogador), quantia);
+					return true;
+				} else {
+					player.sendMessage("§cJogador Offline.");
+					return true;
+				}
+			}
+			
 			if(Utils.exists(player)) {
 				player.sendMessage("§c[Money] §aSeu dinheiro e de:" + " " + Utils.getMoney(player));				
 				
