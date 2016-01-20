@@ -49,6 +49,7 @@ public class Main extends PluginBase implements Listener{
                
 			}
 			if(args.length == 3) {
+		 if(args[0].contains("pay")) {
 				String jogador = args[1];
 				int quantia = Integer.parseInt(args[2]);
 				if(getServer().getPlayer(jogador) != null) {
@@ -59,6 +60,7 @@ public class Main extends PluginBase implements Listener{
 					player.sendMessage("§cJogador Offline.");
 					return true;
 				}
+				  }
 			}
 			
 			if(Utils.exists(player)) {
