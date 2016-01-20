@@ -30,7 +30,7 @@ public class Main extends PluginBase implements Listener{
 
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if(!(sender instanceof Player)) {
-			sender.sendMessage("§cComando somente no servidor."); 
+			sender.sendMessage("Â§cComando somente no servidor."); 
 			return true;
 		}
 		Player player = (Player)sender;
@@ -40,11 +40,11 @@ public class Main extends PluginBase implements Listener{
 			 * -1      0    1    2
 			 */
 			if(args.length == 1) {
-				player.sendMessage("§c[Money] §a/money pay <nick> <quantia>");
+				player.sendMessage("Â§c[Money] Â§a/money pay <nick> <quantia>");
 				if(player.hasPermission("kBanco.admin")) {
-					player.sendMessage("§c[Money] §a/money remove <nick> <quantia>");
-					player.sendMessage("§c[Money] §a/money give <nick> <quantia>");
-					player.sendMessage("§c[Money] §a/money set <nick> <quantia>");
+					player.sendMessage("Â§c[Money] Â§a/money remove <nick> <quantia>");
+					player.sendMessage("Â§c[Money] Â§a/money give <nick> <quantia>");
+					player.sendMessage("Â§c[Money] Â§a/money set <nick> <quantia>");
 				}
 
 
@@ -53,7 +53,7 @@ public class Main extends PluginBase implements Listener{
 			}
 			if(args.length == 2) {
 				if(args[0].contains("pay")) {
-					player.sendMessage("§c[Money] §a/money pay <nick> <quantia>");
+					player.sendMessage("Â§c[Money] Â§a/money pay <nick> <quantia>");
 					return true;
 				}
 
@@ -63,12 +63,12 @@ public class Main extends PluginBase implements Listener{
 					String jogador = args[1];
 					int quantia = Integer.parseInt(args[2]);
 					if(getServer().getPlayer(jogador) != null) {
-						getServer().getPlayer(jogador).sendMessage("§c[Money] §a" + player.getName() + " §cenviou a você §a" + quantia + " coins.");
+						getServer().getPlayer(jogador).sendMessage("Â§c[Money] Â§a" + player.getName() + " Â§cenviou a vocÃª Â§a" + quantia + " coins.");
 						Utils.addMoney(getServer().getPlayer(jogador), quantia);
 						Utils.removeMoney(player, Utils.getMoney(player) - quantia);
 						return true;
 					} else {
-						player.sendMessage("§cJogador Offline.");
+						player.sendMessage("Â§cJogador Offline.");
 						return true;
 					}
 				}
@@ -76,11 +76,11 @@ public class Main extends PluginBase implements Listener{
 					String jogador = args[1];
 					int quantia = Integer.parseInt(args[2]);
 					if(getServer().getPlayer(jogador) != null) {
-						getServer().getPlayer(jogador).sendMessage("§c[Money] §a" + player.getName() + " §cremoveu §a" + quantia + " de sua conta.");
-						Utils.removeMoney(getServer().getPlayer(jogador), quantia);
+						getServer().getPlayer(jogador).sendMessage("Â§c[Money] Â§a" + player.getName() + " Â§cremoveu Â§a" + quantia + " de sua conta.");
+						Utils.removeMoney(getServer().getPlayer(jogador), quantia < 0 ? 0 : Utils.getMoney(player) - quantia);
 						return true;
 					} else {
-						player.sendMessage("§cJogador Offline.");
+						player.sendMessage("Â§cJogador Offline.");
 						return true;
 					}
 				}
@@ -88,11 +88,11 @@ public class Main extends PluginBase implements Listener{
 					String jogador = args[1];
 					int quantia = Integer.parseInt(args[2]);
 					if(getServer().getPlayer(jogador) != null) {
-						getServer().getPlayer(jogador).sendMessage("§c[Money] §a" + player.getName() + " §cadicionou §a" + quantia + " de coins na sua conta.");
+						getServer().getPlayer(jogador).sendMessage("Â§c[Money] Â§a" + player.getName() + " Â§cadicionou Â§a" + quantia + " de coins na sua conta.");
 						Utils.addMoney(getServer().getPlayer(jogador), Utils.getMoney(getServer().getPlayer(jogador)) + quantia);
 						return true;
 					} else {
-						player.sendMessage("§cJogador Offline.");
+						player.sendMessage("Â§cJogador Offline.");
 						return true;
 					}
 				}
@@ -100,18 +100,18 @@ public class Main extends PluginBase implements Listener{
 					String jogador = args[1];
 					int quantia = Integer.parseInt(args[2]);
 					if(getServer().getPlayer(jogador) != null) {
-						getServer().getPlayer(jogador).sendMessage("§c[Money] §a" + player.getName() + " §csetou §a" + quantia + " de coins na sua conta.");
+						getServer().getPlayer(jogador).sendMessage("Â§c[Money] Â§a" + player.getName() + " Â§csetou Â§a" + quantia + " de coins na sua conta.");
 						Utils.setMoney(getServer().getPlayer(jogador), quantia);
 						return true;
 					} else {
-						player.sendMessage("§cJogador Offline.");
+						player.sendMessage("Â§cJogador Offline.");
 						return true;
 					}
 				}
 			}
 
 			if(Utils.exists(player)) {
-				player.sendMessage("§c[Money] §aSeu dinheiro e de:" + " " + Utils.getMoney(player));				
+				player.sendMessage("Â§c[Money] Â§aSeu dinheiro e de:" + " " + Utils.getMoney(player));				
 
 			}
 
