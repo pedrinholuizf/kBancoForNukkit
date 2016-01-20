@@ -1,0 +1,9 @@
+name: kBanco
+main: de.kurimatzu.banco.Main
+version: "1.0.0"
+author: Kurimatzu
+api: ["1.0.0"]
+description: Plugin de dinheiro/money
+commands:
+  money:
+    description: Veja seu Dinheiro.
