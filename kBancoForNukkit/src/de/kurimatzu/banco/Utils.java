@@ -30,6 +30,8 @@ public class Utils {
 	public static void addMoney(final Player p , double quantia) {
 		if(c.exists(p.getUniqueId().toString())) {
 			c.set(p.getUniqueId().toString() , (double)c.get(p.getUniqueId().toString()) + quantia);
+			c.save();
+			c.save(true);
 			p.sendMessage("§c[Money] §aFoi adicionado §6" + quantia + " §ade money a sua conta.");
 		}
 	}
@@ -37,11 +39,15 @@ public class Utils {
 		if(c.exists(p.getUniqueId().toString())) {
 			c.set(p.getUniqueId().toString() , quantia);
 			p.sendMessage("§c[Money] §aFoi SETADO §6" + quantia + " §ade money a sua conta.");
+			c.save();
+			c.save(true);
 		}
 	}
 	public static void removeMoney(final Player p , double quantia) {
 		if(c.exists(p.getUniqueId().toString())) {
 			c.set(p.getUniqueId().toString() ,(double)c.get(p.getUniqueId().toString()) - quantia);
+			c.save();
+			c.save(true);
 			p.sendMessage("§c[Money] §aFoi removido §6" + quantia + " §ade money a sua conta.");
 		}
 	}
