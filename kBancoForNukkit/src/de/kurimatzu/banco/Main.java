@@ -39,8 +39,9 @@ public class Main extends PluginBase implements Listener{
 				player.sendMessage("§c[Money] §aSeu dinheiro e de:" + " " + Utils.getMoney(player));				
 				
 	}
-		return false;
+	
 		}
+		
 		return false;
 	}
 }

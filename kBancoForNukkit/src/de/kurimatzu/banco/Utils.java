@@ -27,6 +27,24 @@ public class Utils {
 			p.sendMessage("§cops, essa conta nao existe.");
 		}
 	}
+	public static void addMoney(final Player p , double quantia) {
+		if(c.exists(p.getUniqueId().toString())) {
+			c.set(p.getUniqueId().toString() , (double)c.get(p.getUniqueId().toString()) + quantia);
+			p.sendMessage("§c[Money] §aFoi adicionado §6" + quantia + " §ade money a sua conta.");
+		}
+	}
+	public static void setMoney(final Player p , double quantia) {
+		if(c.exists(p.getUniqueId().toString())) {
+			c.set(p.getUniqueId().toString() , quantia);
+			p.sendMessage("§c[Money] §aFoi SETADO §6" + quantia + " §ade money a sua conta.");
+		}
+	}
+	public static void removeMoney(final Player p , double quantia) {
+		if(c.exists(p.getUniqueId().toString())) {
+			c.set(p.getUniqueId().toString() ,(double)c.get(p.getUniqueId().toString()) - quantia);
+			p.sendMessage("§c[Money] §aFoi removido §6" + quantia + " §ade money a sua conta.");
+		}
+	}
 	public static void criarConta(final Player p) {
 		if(!c.exists(p.getUniqueId().toString())) {
 			c.set(p.getUniqueId().toString(), Double.valueOf(0));
